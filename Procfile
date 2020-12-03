@@ -1,1 +1,1 @@
-web: gunicorn VideoPiles.wsgi --log-file -
+web: gunicorn LitMain.wsgi --log-file -
