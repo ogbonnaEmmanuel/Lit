@@ -1,0 +1,1 @@
+web: gunicorn VideoPiles.wsgi --log-file -
