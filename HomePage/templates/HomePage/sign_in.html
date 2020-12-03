@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="../../static/HomePage/auth.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div id="center_form">
+    <form method="POST" class="form_auth" id="sign_in">
+        {% csrf_token %}
+        <div id="top_auth">
+            <div id="auth_sign">
+                <a href="/sign_up" class="group_element">
+                    <p class="material-icons">perm_identity</p>
+                    <p class="icon_text" id="sign_up_text">SIGN UP</p>
+                </a>
+            </div>
+            <a href="/" class="group_element">
+                <p class="material-icons icon_home">water_damage</p>
+                <p class="icon_text">HOME</p>
+            </a>
+        </div>
+        <div id="logo_center">
+            <img src="../../static/HomePage/logo.png" id="logo" alt="lit logo"/>
+        </div>
+        {% if form.non_field_errors %}
+            <div id="error_box">
+                <div id="box_text">
+                    <p class="box_error">{{ form.non_field_errors }}</p>
+                </div>
+            </div>
+        {% endif %}
+
+        <div id="form_input">
+            <div class="group_form">
+                <input type="text" name="username"
+                       class="input_form"
+                       placeholder="Enter email or username"/>
+            </div>
+            <div class="group_form">
+                <input type="password" name="password"
+                       class="input_form"
+                       placeholder="Password"/>
+            </div>
+        </div>
+        <a href="/" id="forgot">forgot password ?</a>
+        <div id="auth_submit">
+            <input type="submit" id="submit_btn" value="SIGN IN"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

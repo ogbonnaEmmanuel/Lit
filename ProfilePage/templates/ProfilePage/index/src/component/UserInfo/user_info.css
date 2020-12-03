@@ -1,0 +1,30 @@
+#user_info_index{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+.info_group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.info_number{
+    font-size: 40px;
+    margin-top: 10px;
+    padding-bottom: 40px;
+}
+@media screen and (max-width: 768px){
+    .info_text{
+        font-size: 14px;
+    }
+    .info_number{
+        font-size: 25px;
+    }
+    #user_info_index{
+        margin-top: 20px;
+    }
+}

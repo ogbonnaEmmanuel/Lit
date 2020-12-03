@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="../../static/ProfilePage/settings.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div id="nav_head">
+    <img src="../../static/ProfilePage/light_logo.png" alt="logo" id="img_element"/>
+    <div id="centered_tab">
+        <div id="tab">
+            <p class="material-icons center" id="icon_settings">settings_applications</p>
+            <p class="center" id="setting_text">SETTINGS</p>
+            <img class="center" src="../../static/ProfilePage/dark_logo.png" id="tab_logo_size"/>
+        </div>
+    </div>
+</div>
+<div id="center_form">
+</div>
+{{ form.non_field_errors }}
+<form method="POST" id="form_head">
+    {% csrf_token %}
+    <div id="form_container">
+        <div class="input_container">
+            <input type="text" name="username"
+                   class="form_input"
+                   placeholder="username"
+                   value="{% if form.username.value %}
+                        {{ form.username.value|escape }}
+                       {% endif %}
+                        "
+            />
+            {% if form.username.errors %}
+                <div class="error_box">
+                    {% for error in form.username.errors %}
+                        <p class="error_text">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="input_container">
+            <input type="email" name="email"
+                   class="form_input"
+                   placeholder="{{ user.email }}"
+                   value="{% if form.email.value %}
+                        {{ form.email.value|escape }}
+                      {% endif %}
+                        "
+            />
+            {% if form.email.errors %}
+                <div class="error_box">
+                    {% for error in form.email.errors %}
+                        <p class="error_text">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input_container">
+            <input type="password" name="password1"
+                   class="form_input"
+                   placeholder="password"
+            />
+            {% if form.password1.errors %}
+                <div class="error_box">
+                    {% for error in form.password1.errors %}
+                        <p class="error_text">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input_container">
+            <input type="password" name="password2"
+                   class="form_input"
+                   placeholder="confirm password"
+            />
+            {% if form.password2.errors %}
+                <div class="error_box">
+                    {% for error in form.password2.errors %}
+                        <p class="error_text">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <input type="submit" id="submit_btn" value="UPDATE"/>
+    </div>
+</form>
+</div>
+</body>
+</html>

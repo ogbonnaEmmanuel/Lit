@@ -1,0 +1,58 @@
+.cl_form_modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.cl_form_modal-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: center;
+    width: 100%;
+}
+#cl_modal_form_input_container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#cl_text_warning{
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+#cl_text_url{
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #e8505a;
+    overflow-wrap: break-word;
+}
+#cl_btn_group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.cl_btn{
+    padding: 10px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+#cl_no_btn{
+    background-color: #eeeeee;
+    color: #2f3e46;
+}
+#cl_yes_btn{
+    background-color: #e8505a;
+}
+@media screen and (max-width: 768px){
+    #cl_text_url{
+        width: 200px;
+    }
+}
