@@ -79,12 +79,17 @@
         margin-top: 50px;
     }
     #feedback_text{
-        font-size: 14px;
+        font-size: 12px;
     }
     #vid_side{
         border-radius: 10px;
     }
     #feedback_side{
         border-radius: 10px;
+    }
+}
+@media screen and (max-width: 320px){
+    #feedback_text{
+        font-size: 10px;
     }
 }
