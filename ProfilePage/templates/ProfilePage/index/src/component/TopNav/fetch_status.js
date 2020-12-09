@@ -9,13 +9,46 @@ const override = css`
 `;
 
 class FetchStatus extends React.Component {
-    copyText = () => {
-        let copy_btn = document.getElementById('copy_event_btn');
-        navigator.clipboard.writeText(this.props.created_url).then(function () {
-            navigator.clipboard.readText().then(function () {
+     fallbackCopyTextToClipboard = (text) => {
+        let textArea = document.createElement("textarea");
+        textArea.value = text;
+
+        // Avoid scrolling to bottom
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            let successful = document.execCommand('copy');
+            let msg = successful ? 'successful' : 'unsuccessful';
+            let copy_btn = document.getElementById('copy_event_btn');
+            if (msg === 'successful') {
                 copy_btn.textContent = 'LINK COPIED';
-            })
-        }, function () {
+            }
+            console.log('Fallback: Copying text command was ' + msg);
+        } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+        }
+
+        document.body.removeChild(textArea);
+    }
+
+    copyTextToClipboard = () => {
+        let text = this.props.created_url;
+        if (!navigator.clipboard) {
+            this.fallbackCopyTextToClipboard(text);
+            return;
+        }
+        navigator.clipboard.writeText(text).then(function () {
+            let copy_btn = document.getElementById('copy_event_btn');
+            copy_btn.textContent = 'LINK COPIED';
+            console.log('Async: Copying to clipboard was successful!');
+        }, function (err) {
+            console.error('Async: Could not copy text: ', err);
         });
     }
 
@@ -27,12 +60,12 @@ class FetchStatus extends React.Component {
                         <p className="material-icons" id="verified_icon">
                             verified
                         </p>
-                        <p>Link Shortened successfully</p>
-                        <p id="copy_event_btn" onClick={this.copyText}>
+                        <p id="copy_event_btn" onClick={this.copyTextToClipboard}>
                             {
                                 this.props.reset_copy_text === true ? 'COPY LINK' : 'COPY LINK'
                             }
                         </p>
+                        <p id="user_url">{this.props.created_url}</p>
                     </div>
                 )
             }

@@ -5,13 +5,14 @@ class TemplateOrganizer extends React.Component {
 
     openEditModal = (e) => {
         let id = e.target.id;
-        this.props.openUtilModal(id,'edit');
+        this.props.openUtilModal(id, 'edit');
     }
 
-    openDeleteModal = (e)=>{
+    openDeleteModal = (e) => {
         let id = this.props.link_data['link_id'];
-        this.props.openUtilModal(id,'delete');
+        this.props.openUtilModal(id, 'delete');
     }
+
 
     render() {
         return (
@@ -43,22 +44,25 @@ class TemplateOrganizer extends React.Component {
                         create
                     </div>
                     <div className="material-icons btn_action copy_btn"
-                        onClick={this.openDeleteModal}>
+                         onClick={this.openDeleteModal}>
                         clear
                     </div>
                 </div>
             </div>
+
         )
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        openUtilModal: (alias_id,util_type) => dispatch(
-            {type: 'set_alias_edit_form_value', alias_id,
+        openUtilModal: (alias_id, util_type) => dispatch(
+            {
+                type: 'set_alias_edit_form_value', alias_id,
                 util_type
             })
     }
 }
+
 
 export default connect(null, mapDispatchToProps)(TemplateOrganizer)

@@ -75,6 +75,7 @@ class FetchStatus extends React.Component {
                                 this.props.reset_copy_text === true ? 'COPY LINK' : 'COPY LINK'
                             }
                         </p>
+                        <p id="user_url">{this.props.created_url}</p>
                     </div>
                 )
             }

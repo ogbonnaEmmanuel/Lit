@@ -1,5 +1,6 @@
 const initState = {
     loading: false,
+    empty_data:true,
     Aggregate: {
         active_links: null,
         total_visitors: null,
@@ -56,8 +57,10 @@ const rootReducer = (state = initState, action) => {
             let unit = state.unit;
             Aggregate = action.user_data.Aggregate;
             unit = action.user_data.unit;
+            let empty_data = false
             return {
                 ...state,
+                empty_data,
                 Aggregate,
                 unit
             }

@@ -126,6 +126,9 @@
     margin-bottom: 10px;
     color: #02c39a;
 }
+#user_url{
+    display: none;
+}
 
 @media screen and (max-width: 768px) {
     #search_box {
@@ -148,6 +151,15 @@
 
     .modal-content {
         width: 80%;
+    }
+    #user_url{
+        display: block;
+        text-align: center;
+        color: black;
+        font-size: 14px;
+    }
+    #copy_event_btn{
+        display: none;
     }
 }
 

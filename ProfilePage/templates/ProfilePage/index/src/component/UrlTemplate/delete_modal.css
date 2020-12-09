@@ -31,6 +31,7 @@
     text-transform: uppercase;
     color: #e8505a;
     overflow-wrap: break-word;
+    margin-left: 5px;
 }
 #cl_btn_group{
     display: flex;

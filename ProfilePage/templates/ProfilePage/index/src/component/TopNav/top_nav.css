@@ -206,6 +206,9 @@
     margin-bottom: 10px;
     color: #02c39a;
 }
+#user_url{
+    display: none;
+}
 @media screen and (max-width: 768px) {
     #default_img {
         margin-top: 40px;
@@ -234,6 +237,14 @@
     #successful_link{
         font-size: 14px;
      }
+    #copy_event_btn{
+        display: none;
+    }
+    #user_url{
+        display: block;
+        text-align: center;
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 320px) {

@@ -74,6 +74,15 @@
     color: #FFFFFF;
 }
 
+
+#empty_img{
+    width: 300px;
+    border-radius: 10px;
+}
+#shorten_text{
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
     #center_grid {
         margin-top: 50px;
